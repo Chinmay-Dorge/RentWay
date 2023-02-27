@@ -5,19 +5,19 @@ import RightArrow from "../../public/icons/RightArrow";
 const testi = [
   {
     speech:
-      "Lorem ipsum dolor sit, amet consectetur rro fuga minima necessitatibus repellendus. Veniam suscipit excepturi rem aliquam officiis.",
+      "Great Customer Experience.",
     name: "David",
     occupation: "Social Influencer",
   },
   {
     speech:
-      "Nesciunt natus ullam iusto, maiores facere consectetur minima necessitatib adipisicing elit. Autem porro",
+      "Helped me to get my dream car.",
     name: "Neymar",
     occupation: "Athlete",
   },
   {
     speech:
-      "provident neque obcaecati, quo consequatur delectus s ullam iusto, maiores facere consecte",
+      "Simple and easy to use.",
     name: "Ronaldo",
     occupation: "Business Owner",
   },

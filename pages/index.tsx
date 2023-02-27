@@ -23,32 +23,6 @@ type Props = {
 
 const Home: React.FC<Props> = ({ products }) => {
   const t = useTranslations("Index");
-  const [currentItems, setCurrentItems] = useState(products);
-  const [isFetching, setIsFetching] = useState(false);
-
-  // useEffect(() => {
-  //   if (!isFetching) return;
-  //   const fetchData = async () => {
-  //     const res = await axios.get(
-  //       `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&offset=${currentItems.length}&limit=10`
-  //     );
-  //     const fetchedProducts = res.data.data.map((product: apiProductsType) => ({
-  //       ...product,
-  //       img1: product.image1,
-  //       img2: product.image2,
-  //     }));
-  //     setCurrentItems((products) => [...products, ...fetchedProducts]);
-  //     setIsFetching(false);
-  //   };
-  //   fetchData();
-  // }, [isFetching, currentItems.length]);
-
-  // const handleSeemore = async (
-  //   e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  // ) => {
-  //   e.preventDefault();
-  //   setIsFetching(true);
-  // };
 
   return (
     <>
@@ -72,7 +46,7 @@ const Home: React.FC<Props> = ({ products }) => {
                   href="/product-category/new-arrivals"
                   extraClass="absolute bottom-10-per sm:right-10-per z-20"
                 >
-                  {t("new_arrivals")}
+                  {"New Products"}
                 </LinkButton>
               </OverlayContainer>
             </div>
@@ -85,7 +59,7 @@ const Home: React.FC<Props> = ({ products }) => {
                   href="/product-category/women"
                   extraClass="absolute bottom-10-per z-20"
                 >
-                  {t("women_collection")}
+                  {"Exclusive"}
                 </LinkButton>
               </OverlayContainer>
             </div>
@@ -98,7 +72,7 @@ const Home: React.FC<Props> = ({ products }) => {
                   href="/product-category/men"
                   extraClass="absolute bottom-10-per z-20"
                 >
-                  {t("men_collection")}
+                  {"Clearance"}
                 </LinkButton>
               </OverlayContainer>
             </div>
@@ -123,7 +97,7 @@ const Home: React.FC<Props> = ({ products }) => {
 
         {/* ===== Testimonial Section ===== */}
         <section className="w-full hidden h-full py-16 md:flex flex-col items-center bg-lightgreen">
-          <h2 className="text-3xl">{t("testimonial")}</h2>
+          <h2 className="text-3xl">{"Testimonials"}</h2>
           <TestiSlider />
         </section>
 
@@ -148,7 +122,7 @@ const Home: React.FC<Props> = ({ products }) => {
         <div className="border-gray100 border-b-2"></div> */}
 
         {/* ===== Our Shop Section */}
-        <section className="app-max-width mt-16 mb-20 flex flex-col justify-center items-center text-center">
+        {/* <section className="app-max-width mt-16 mb-20 flex flex-col justify-center items-center text-center">
           <div className="textBox w-3/4 md:w-2/4 lg:w-2/5 mb-6">
             <h2 className="text-3xl mb-6">{t("our_shop")}</h2>
             <span className="w-full">{t("our_shop_desc")}</span>
@@ -156,7 +130,7 @@ const Home: React.FC<Props> = ({ products }) => {
           <div className="w-full app-x-padding flex justify-center">
             <Image src={ourShop} alt="Our Shop" />
           </div>
-        </section>
+        </section> */}
       </main>
 
       {/* ===== Footer Section ===== */}

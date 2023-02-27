@@ -95,23 +95,23 @@ const Header: React.FC<Props> = ({ title }) => {
             {/* Left Nav */}
             <ul className={`flex-0 lg:flex-1 flex ${styles.leftMenu}`}>
               <li>
-                <Link href={`/product-category/men`}>
-                  <a>{t("men")}</a>
+                <Link href={`/`}>
+                  <a>{"Home"}</a>
                 </Link>
               </li>
               <li>
-                <Link href={`/product-category/women`}>
-                  <a>{t("women")}</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/product-category/bags">
-                  <a>{t("bags")}</a>
+                <Link href={`/`}>
+                  <a>{"All Products"}</a>
                 </Link>
               </li>
               <li>
                 <Link href="/coming-soon">
-                  <a>{t("blogs")}</a>
+                  <a>{"Sell Now"}</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/coming-soon">
+                  <a>{"Contact Us"}</a>
                 </Link>
               </li>
             </ul>
@@ -121,14 +121,11 @@ const Header: React.FC<Props> = ({ title }) => {
               <div className="w-32 h-auto">
                 <Link href="/">
                   <a>
-                    <Image
-                      className="justify-center"
-                      src="/logo.svg"
-                      alt="Picture of the author"
-                      width={220}
-                      height={50}
-                      layout="responsive"
-                    />
+                    <h1
+                      className="justify-center text-4xl text-center"
+                    >
+                      RentWay
+                    </h1>
                   </a>
                 </Link>
               </div>
@@ -151,6 +148,7 @@ const Header: React.FC<Props> = ({ title }) => {
                     type="button"
                     className="relative"
                     aria-label="Wishlist"
+                    disabled
                   >
                     <WhistlistIcon />
                     {noOfWishlist > 0 && (
