@@ -26,29 +26,29 @@ const Home: React.FC<Props> = ({ products }) => {
   const [currentItems, setCurrentItems] = useState(products);
   const [isFetching, setIsFetching] = useState(false);
 
-  useEffect(() => {
-    if (!isFetching) return;
-    const fetchData = async () => {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&offset=${currentItems.length}&limit=10`
-      );
-      const fetchedProducts = res.data.data.map((product: apiProductsType) => ({
-        ...product,
-        img1: product.image1,
-        img2: product.image2,
-      }));
-      setCurrentItems((products) => [...products, ...fetchedProducts]);
-      setIsFetching(false);
-    };
-    fetchData();
-  }, [isFetching, currentItems.length]);
+  // useEffect(() => {
+  //   if (!isFetching) return;
+  //   const fetchData = async () => {
+  //     const res = await axios.get(
+  //       `${process.env.NEXT_PUBLIC_PROD_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&offset=${currentItems.length}&limit=10`
+  //     );
+  //     const fetchedProducts = res.data.data.map((product: apiProductsType) => ({
+  //       ...product,
+  //       img1: product.image1,
+  //       img2: product.image2,
+  //     }));
+  //     setCurrentItems((products) => [...products, ...fetchedProducts]);
+  //     setIsFetching(false);
+  //   };
+  //   fetchData();
+  // }, [isFetching, currentItems.length]);
 
-  const handleSeemore = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.preventDefault();
-    setIsFetching(true);
-  };
+  // const handleSeemore = async (
+  //   e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  // ) => {
+  //   e.preventDefault();
+  //   setIsFetching(true);
+  // };
 
   return (
     <>
@@ -106,7 +106,7 @@ const Home: React.FC<Props> = ({ products }) => {
         </section>
 
         {/* ===== Best Selling Section ===== */}
-        <section className="app-max-width w-full h-full flex flex-col justify-center mt-16 mb-20">
+        {/* <section className="app-max-width w-full h-full flex flex-col justify-center mt-16 mb-20">
           <div className="flex justify-center">
             <div className="w-3/4 sm:w-1/2 md:w-1/3 text-center mb-8">
               <h2 className="text-3xl mb-4">{t("best_selling")}</h2>
@@ -119,7 +119,7 @@ const Home: React.FC<Props> = ({ products }) => {
             <Card key={currentItems[3].id} item={currentItems[3]} />
             <Card key={currentItems[4].id} item={currentItems[4]} />
           </div>
-        </section>
+        </section> */}
 
         {/* ===== Testimonial Section ===== */}
         <section className="w-full hidden h-full py-16 md:flex flex-col items-center bg-lightgreen">
@@ -128,7 +128,7 @@ const Home: React.FC<Props> = ({ products }) => {
         </section>
 
         {/* ===== Featured Products Section ===== */}
-        <section className="app-max-width app-x-padding my-16 flex flex-col">
+        {/* <section className="app-max-width app-x-padding my-16 flex flex-col">
           <div className="text-center mb-6">
             <h2 className="text-3xl">{t("featured_products")}</h2>
           </div>
@@ -145,7 +145,7 @@ const Home: React.FC<Props> = ({ products }) => {
           </div>
         </section>
 
-        <div className="border-gray100 border-b-2"></div>
+        <div className="border-gray100 border-b-2"></div> */}
 
         {/* ===== Our Shop Section */}
         <section className="app-max-width mt-16 mb-20 flex flex-col justify-center items-center text-center">
@@ -165,33 +165,33 @@ const Home: React.FC<Props> = ({ products }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  let products: itemType[] = [];
-  const res = await axios.get(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&limit=10`
-  );
-  const fetchedProducts = res.data;
-  fetchedProducts.data.forEach((product: apiProductsType) => {
-    products = [
-      ...products,
-      {
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        img1: product.image1,
-        img2: product.image2,
-      },
-    ];
-  });
-  return {
-    props: {
-      messages: {
-        // ...require(`../messages/index/${locale}.json`),
-        ...require(`../messages/common/${locale}.json`),
-      },
-      products,
-    }, // will be passed to the page component as props
-  };
-};
+// export const getStaticProps: GetStaticProps = async ({ locale }) => {
+//   let products: itemType[] = [];
+//   const res = await axios.get(
+//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/products?order_by=createdAt.desc&limit=10`
+//   );
+//   const fetchedProducts = res.data;
+//   fetchedProducts.data.forEach((product: apiProductsType) => {
+//     products = [
+//       ...products,
+//       {
+//         id: product.id,
+//         name: product.name,
+//         price: product.price,
+//         img1: product.image1,
+//         img2: product.image2,
+//       },
+//     ];
+//   });
+//   return {
+//     props: {
+//       messages: {
+//         // ...require(`../messages/index/${locale}.json`),
+//         ...require(`../messages/common/${locale}.json`),
+//       },
+//       products,
+//     }, // will be passed to the page component as props
+//   };
+// };
 
 export default Home;
